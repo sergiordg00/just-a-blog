@@ -1,0 +1,52 @@
+.drawer-backdrop-enter {
+  animation: drawerBackdropEnter 500ms ease-out forwards;
+}
+
+.drawer-backdrop-exit {
+  animation: drawerBackdropExit 500ms ease-in forwards;
+}
+
+.drawer-enter {
+  animation: drawerEnter 500ms ease-in-out forwards;
+}
+
+.drawer-exit {
+  animation: drawerExit 500ms ease-in-out forwards;
+}
+
+@keyframes drawerBackdropEnter {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+@keyframes drawerBackdropExit {
+  from {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes drawerEnter {
+  from {
+    transform: translateX(100%)
+  }
+  to {
+    transform: translateX(0)
+  }
+}
+
+@keyframes drawerExit {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
