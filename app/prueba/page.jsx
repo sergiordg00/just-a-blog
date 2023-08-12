@@ -1,6 +1,7 @@
 import clsx from "clsx";
-import { BiTrendingUp } from "react-icons/bi";
-import { MdOutlineArticle } from "react-icons/md";
+import { BiCategoryAlt, BiTrendingUp } from "react-icons/bi";
+import { ImNewspaper } from "react-icons/im";
+import { MdDateRange } from "react-icons/md";
 
 import test from "@/assets/img/test.jpg";
 import test2 from "@/assets/img/test2.jpg";
@@ -8,7 +9,7 @@ import test2 from "@/assets/img/test2.jpg";
 export default function Home() {
   return (
     <div className="mx-auto flex w-full max-w-[1600px] items-start">
-      <div className="min-h-screen w-full min-w-0 p-6 pt-4">
+      <div className="min-h-screen w-full min-w-0 p-6 pb-12 pt-4">
         <div className="flex w-full items-center gap-x-4">
           <div className="h-12 w-12 rounded-full bg-red-500"></div>
           <div className="w-full max-w-[500px] rounded-full border border-solid border-gray-400 p-2 px-4 text-gray-500">
@@ -18,8 +19,11 @@ export default function Home() {
         
         <div className="my-5 h-[1px] w-full shrink-0 bg-gray-300"/>
 
-        <h2 className="mb-3 flex items-center gap-x-1 text-lg font-bold sm:text-xl">
-          <MdOutlineArticle size={25} className="text-black"/>
+        {/* SEARCH RESULT UI TEST START */}
+        {/* SEARCH RESULT UI TEST END */}
+
+        <h2 className="mb-3 flex items-center gap-x-2 text-lg font-bold sm:text-xl">
+          <ImNewspaper size={24} className="text-black"/>
         Article of the day
         </h2>
 
@@ -54,7 +58,7 @@ export default function Home() {
           </div>
         </article>
 
-        <h2 className="mb-3 mt-5 flex items-center gap-x-2 text-lg font-bold sm:text-xl">
+        <h2 className="mb-3 mt-6 flex items-center gap-x-2 text-lg font-bold sm:text-xl">
           <BiTrendingUp size={28} className="text-red-500"/>
         Trending posts
         </h2>
@@ -188,6 +192,400 @@ export default function Home() {
             </div>
           </article>
         </section>
+
+        <h2 className="mb-5 mt-6 flex items-center gap-x-1 text-lg font-bold sm:text-xl">
+          <BiCategoryAlt size={24} className="text-black"/>
+        Categories
+        </h2>
+
+        <div className="mb-5 flex w-full items-center gap-x-3 overflow-x-auto sm:gap-x-4">
+          <div className="w-fit shrink-0 rounded-full border border-solid border-black bg-black p-1 px-3 text-xs font-semibold text-white transition hover:border-black hover:bg-black hover:text-white sm:text-sm">
+            For you
+          </div>
+
+          <div className="w-fit shrink-0 rounded-full border border-solid border-gray-400 p-1 px-3 text-xs font-semibold hover:bg-black hover:text-white sm:text-sm">
+            Math
+          </div>
+
+          <div className="w-fit shrink-0 rounded-full border border-solid border-gray-400 p-1 px-3 text-xs font-semibold hover:bg-black hover:text-white sm:text-sm">
+          Science
+          </div>
+
+          <div className="w-fit shrink-0 rounded-full border border-solid border-gray-400 p-1 px-3 text-xs font-semibold hover:bg-black hover:text-white sm:text-sm">
+          Technology
+          </div>
+
+          <div className="w-fit shrink-0 rounded-full border border-solid border-gray-400 p-1 px-3 text-xs font-semibold hover:bg-black hover:text-white sm:text-sm">
+          History
+          </div>
+
+          <div className="w-fit shrink-0 rounded-full border border-solid border-gray-400 p-1 px-3 text-xs font-semibold hover:bg-black hover:text-white sm:text-sm">
+          Society
+          </div>
+
+          <div className="w-fit shrink-0 rounded-full border border-solid border-gray-400 p-1 px-3 text-xs font-semibold hover:bg-black hover:text-white sm:text-sm">
+          Biology
+          </div>
+
+          <div className="w-fit shrink-0 rounded-full border border-solid border-gray-400 p-1 px-3 text-xs font-semibold hover:bg-black hover:text-white sm:text-sm">
+          Chemistry
+          </div>
+        </div>
+
+        <div className="grid w-full grid-cols-2 gap-x-4 gap-y-6 lg:grid-cols-3 lg:gap-x-6">
+          <div className="flex w-full flex-col gap-y-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={test.src} 
+              alt="Post cover" 
+              className="aspect-[3/2] w-full rounded-md bg-gray-300 object-cover object-center" 
+            />
+
+            <h2 className="text-base font-bold text-black md:text-lg">
+            Is United States really the best country in the world?
+            </h2>
+
+            <p className="line-clamp-3 text-sm font-medium text-gray-400">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, iusto ipsa! Soluta in, alias expedita ut recusandae repudiandae dicta at rem provident, quo labore doloremque consectetur explicabo dolor possimus officiis.
+            </p>
+
+            <p className="flex w-full items-center gap-x-1 text-xs font-medium  text-gray-900">
+              <MdDateRange size={16}/>
+              18 october 2021
+            </p>
+          </div>
+
+          <div className="flex w-full flex-col gap-y-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={test2.src} 
+              alt="Post cover" 
+              className="aspect-[3/2] w-full rounded-md bg-gray-300 object-cover object-center" 
+            />
+
+            <h2 className="text-base font-bold text-black md:text-lg">
+            Is United States really the best country in the world?
+            </h2>
+
+            <p className="line-clamp-3 text-sm font-medium text-gray-400">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, iusto ipsa! Soluta in, alias expedita ut recusandae repudiandae dicta at rem provident, quo labore doloremque consectetur explicabo dolor possimus officiis.
+            </p>
+
+            <p className="flex w-full items-center gap-x-1 text-xs font-medium  text-gray-900">
+              <MdDateRange size={16}/>
+              18 october 2021
+            </p>
+          </div>
+
+          <div className="flex w-full flex-col gap-y-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={test.src} 
+              alt="Post cover" 
+              className="aspect-[3/2] w-full rounded-md bg-gray-300 object-cover object-center" 
+            />
+
+            <h2 className="text-base font-bold text-black md:text-lg">
+            Is United States really the best country in the world?
+            </h2>
+
+            <p className="line-clamp-3 text-sm font-medium text-gray-400">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, iusto ipsa! Soluta in, alias expedita ut recusandae repudiandae dicta at rem provident, quo labore doloremque consectetur explicabo dolor possimus officiis.
+            </p>
+
+            <p className="flex w-full items-center gap-x-1 text-xs font-medium  text-gray-900">
+              <MdDateRange size={16}/>
+              18 october 2021
+            </p>
+          </div>
+
+          <div className="flex w-full flex-col gap-y-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={test2.src} 
+              alt="Post cover" 
+              className="aspect-[3/2] w-full rounded-md bg-gray-300 object-cover object-center" 
+            />
+
+            <h2 className="text-base font-bold text-black md:text-lg">
+            Is United States really the best country in the world?
+            </h2>
+
+            <p className="line-clamp-3 text-sm font-medium text-gray-400">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, iusto ipsa! Soluta in, alias expedita ut recusandae repudiandae dicta at rem provident, quo labore doloremque consectetur explicabo dolor possimus officiis.
+            </p>
+
+            <p className="flex w-full items-center gap-x-1 text-xs font-medium  text-gray-900">
+              <MdDateRange size={16}/>
+              18 october 2021
+            </p>
+          </div>
+
+          <div className="flex w-full flex-col gap-y-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={test.src} 
+              alt="Post cover" 
+              className="aspect-[3/2] w-full rounded-md bg-gray-300 object-cover object-center" 
+            />
+
+            <h2 className="text-base font-bold text-black md:text-lg">
+            Is United States really the best country in the world?
+            </h2>
+
+            <p className="line-clamp-3 text-sm font-medium text-gray-400">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, iusto ipsa! Soluta in, alias expedita ut recusandae repudiandae dicta at rem provident, quo labore doloremque consectetur explicabo dolor possimus officiis.
+            </p>
+
+            <p className="flex w-full items-center gap-x-1 text-xs font-medium  text-gray-900">
+              <MdDateRange size={16}/>
+              18 october 2021
+            </p>
+          </div>
+
+          <div className="flex w-full flex-col gap-y-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={test2.src} 
+              alt="Post cover" 
+              className="aspect-[3/2] w-full rounded-md bg-gray-300 object-cover object-center" 
+            />
+
+            <h2 className="text-base font-bold text-black md:text-lg">
+            Is United States really the best country in the world?
+            </h2>
+
+            <p className="line-clamp-3 text-sm font-medium text-gray-400">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, iusto ipsa! Soluta in, alias expedita ut recusandae repudiandae dicta at rem provident, quo labore doloremque consectetur explicabo dolor possimus officiis.
+            </p>
+
+            <p className="flex w-full items-center gap-x-1 text-xs font-medium  text-gray-900">
+              <MdDateRange size={16}/>
+              18 october 2021
+            </p>
+          </div>
+
+          <div className="flex w-full flex-col gap-y-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={test2.src} 
+              alt="Post cover" 
+              className="aspect-[3/2] w-full rounded-md bg-gray-300 object-cover object-center" 
+            />
+
+            <h2 className="text-base font-bold text-black md:text-lg">
+            Is United States really the best country in the world?
+            </h2>
+
+            <p className="line-clamp-3 text-sm font-medium text-gray-400">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, iusto ipsa! Soluta in, alias expedita ut recusandae repudiandae dicta at rem provident, quo labore doloremque consectetur explicabo dolor possimus officiis.
+            </p>
+
+            <p className="flex w-full items-center gap-x-1 text-xs font-medium  text-gray-900">
+              <MdDateRange size={16}/>
+              18 october 2021
+            </p>
+          </div>
+
+          <div className="flex w-full flex-col gap-y-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={test2.src} 
+              alt="Post cover" 
+              className="aspect-[3/2] w-full rounded-md bg-gray-300 object-cover object-center" 
+            />
+
+            <h2 className="text-base font-bold text-black md:text-lg">
+            Is United States really the best country in the world?
+            </h2>
+
+            <p className="line-clamp-3 text-sm font-medium text-gray-400">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, iusto ipsa! Soluta in, alias expedita ut recusandae repudiandae dicta at rem provident, quo labore doloremque consectetur explicabo dolor possimus officiis.
+            </p>
+
+            <p className="flex w-full items-center gap-x-1 text-xs font-medium  text-gray-900">
+              <MdDateRange size={16}/>
+              18 october 2021
+            </p>
+          </div>
+
+          <div className="flex w-full flex-col gap-y-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={test2.src} 
+              alt="Post cover" 
+              className="aspect-[3/2] w-full rounded-md bg-gray-300 object-cover object-center" 
+            />
+
+            <h2 className="text-base font-bold text-black md:text-lg">
+            Is United States really the best country in the world?
+            </h2>
+
+            <p className="line-clamp-3 text-sm font-medium text-gray-400">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, iusto ipsa! Soluta in, alias expedita ut recusandae repudiandae dicta at rem provident, quo labore doloremque consectetur explicabo dolor possimus officiis.
+            </p>
+
+            <p className="flex w-full items-center gap-x-1 text-xs font-medium  text-gray-900">
+              <MdDateRange size={16}/>
+              18 october 2021
+            </p>
+          </div>
+
+          <div className="flex w-full flex-col gap-y-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={test2.src} 
+              alt="Post cover" 
+              className="aspect-[3/2] w-full rounded-md bg-gray-300 object-cover object-center" 
+            />
+
+            <h2 className="text-base font-bold text-black md:text-lg">
+            Is United States really the best country in the world?
+            </h2>
+
+            <p className="line-clamp-3 text-sm font-medium text-gray-400">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, iusto ipsa! Soluta in, alias expedita ut recusandae repudiandae dicta at rem provident, quo labore doloremque consectetur explicabo dolor possimus officiis.
+            </p>
+
+            <p className="flex w-full items-center gap-x-1 text-xs font-medium  text-gray-900">
+              <MdDateRange size={16}/>
+              18 october 2021
+            </p>
+          </div>
+
+          <div className="flex w-full flex-col gap-y-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={test2.src} 
+              alt="Post cover" 
+              className="aspect-[3/2] w-full rounded-md bg-gray-300 object-cover object-center" 
+            />
+
+            <h2 className="text-base font-bold text-black md:text-lg">
+            Is United States really the best country in the world?
+            </h2>
+
+            <p className="line-clamp-3 text-sm font-medium text-gray-400">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, iusto ipsa! Soluta in, alias expedita ut recusandae repudiandae dicta at rem provident, quo labore doloremque consectetur explicabo dolor possimus officiis.
+            </p>
+
+            <p className="flex w-full items-center gap-x-1 text-xs font-medium  text-gray-900">
+              <MdDateRange size={16}/>
+              18 october 2021
+            </p>
+          </div>
+
+          <div className="flex w-full flex-col gap-y-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={test2.src} 
+              alt="Post cover" 
+              className="aspect-[3/2] w-full rounded-md bg-gray-300 object-cover object-center" 
+            />
+
+            <h2 className="text-base font-bold text-black md:text-lg">
+            Is United States really the best country in the world?
+            </h2>
+
+            <p className="line-clamp-3 text-sm font-medium text-gray-400">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, iusto ipsa! Soluta in, alias expedita ut recusandae repudiandae dicta at rem provident, quo labore doloremque consectetur explicabo dolor possimus officiis.
+            </p>
+
+            <p className="flex w-full items-center gap-x-1 text-xs font-medium  text-gray-900">
+              <MdDateRange size={16}/>
+              18 october 2021
+            </p>
+          </div>
+
+          <div className="flex w-full flex-col gap-y-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={test2.src} 
+              alt="Post cover" 
+              className="aspect-[3/2] w-full rounded-md bg-gray-300 object-cover object-center" 
+            />
+
+            <h2 className="text-base font-bold text-black md:text-lg">
+            Is United States really the best country in the world?
+            </h2>
+
+            <p className="line-clamp-3 text-sm font-medium text-gray-400">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, iusto ipsa! Soluta in, alias expedita ut recusandae repudiandae dicta at rem provident, quo labore doloremque consectetur explicabo dolor possimus officiis.
+            </p>
+
+            <p className="flex w-full items-center gap-x-1 text-xs font-medium  text-gray-900">
+              <MdDateRange size={16}/>
+              18 october 2021
+            </p>
+          </div>
+
+          <div className="flex w-full flex-col gap-y-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={test2.src} 
+              alt="Post cover" 
+              className="aspect-[3/2] w-full rounded-md bg-gray-300 object-cover object-center" 
+            />
+
+            <h2 className="text-base font-bold text-black md:text-lg">
+            Is United States really the best country in the world?
+            </h2>
+
+            <p className="line-clamp-3 text-sm font-medium text-gray-400">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, iusto ipsa! Soluta in, alias expedita ut recusandae repudiandae dicta at rem provident, quo labore doloremque consectetur explicabo dolor possimus officiis.
+            </p>
+
+            <p className="flex w-full items-center gap-x-1 text-xs font-medium  text-gray-900">
+              <MdDateRange size={16}/>
+              18 october 2021
+            </p>
+          </div>
+
+          <div className="flex w-full flex-col gap-y-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={test2.src} 
+              alt="Post cover" 
+              className="aspect-[3/2] w-full rounded-md bg-gray-300 object-cover object-center" 
+            />
+
+            <h2 className="text-base font-bold text-black md:text-lg">
+            Is United States really the best country in the world?
+            </h2>
+
+            <p className="line-clamp-3 text-sm font-medium text-gray-400">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, iusto ipsa! Soluta in, alias expedita ut recusandae repudiandae dicta at rem provident, quo labore doloremque consectetur explicabo dolor possimus officiis.
+            </p>
+
+            <p className="flex w-full items-center gap-x-1 text-xs font-medium  text-gray-900">
+              <MdDateRange size={16}/>
+              18 october 2021
+            </p>
+          </div>
+
+          <div className="flex w-full flex-col gap-y-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={test2.src} 
+              alt="Post cover" 
+              className="aspect-[3/2] w-full rounded-md bg-gray-300 object-cover object-center" 
+            />
+
+            <h2 className="text-base font-bold text-black md:text-lg">
+            Is United States really the best country in the world?
+            </h2>
+
+            <p className="line-clamp-3 text-sm font-medium text-gray-400">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, iusto ipsa! Soluta in, alias expedita ut recusandae repudiandae dicta at rem provident, quo labore doloremque consectetur explicabo dolor possimus officiis.
+            </p>
+
+            <p className="flex w-full items-center gap-x-1 text-xs font-medium  text-gray-900">
+              <MdDateRange size={16}/>
+              18 october 2021
+            </p>
+          </div>
+
+        </div>
       </div>
 
       <section className="sticky top-0 hidden min-h-screen w-[350px] shrink-0 flex-col gap-y-5 border-l border-solid border-gray-300 p-6 pt-4 md:flex">
