@@ -3,6 +3,7 @@ import { BiCategoryAlt, BiTrendingUp } from "react-icons/bi";
 import { ImNewspaper } from "react-icons/im";
 import { MdDateRange } from "react-icons/md";
 
+import logo2 from "@/assets/img/logo2.jpeg";
 import test from "@/assets/img/test.jpg";
 import test2 from "@/assets/img/test2.jpg";
 
@@ -10,8 +11,13 @@ export default function Home() {
   return (
     <div className="mx-auto flex w-full max-w-[1600px] items-start">
       <div className="min-h-screen w-full min-w-0 p-6 pb-12 pt-4">
-        <div className="flex w-full items-center gap-x-4">
-          <div className="h-12 w-12 rounded-full bg-red-500"></div>
+        <div className="flex w-full items-center gap-x-5">
+          <img 
+            src={logo2.src} 
+            alt="logo test" 
+            className="h-auto w-[48px] shrink-0 rounded-md"
+          />
+
           <div className="w-full max-w-[500px] rounded-full border border-solid border-gray-400 p-2 px-4 text-gray-500">
             Search for a post...
           </div>
@@ -20,6 +26,58 @@ export default function Home() {
         <div className="my-5 h-[1px] w-full shrink-0 bg-gray-300"/>
 
         {/* SEARCH RESULT UI TEST START */}
+        <p className="mb-4 w-full text-sm font-semibold sm:text-base">
+          11 results found
+        </p>
+
+        <div className="flex w-full items-center gap-x-3 rounded-lg p-2 transition hover:bg-gray-300 md:gap-x-5">
+          <img 
+            src={test.src} 
+            alt="Article Result Cover" 
+            className="aspect-square w-[150px] shrink-0 rounded-md object-cover object-center md:w-[190px] lg:w-[220px]" 
+          />
+
+          <div className="flex w-full flex-col gap-y-2 md:gap-y-3">
+            <p className="hidden w-full items-center gap-x-1 text-xs font-bold text-gray-900 md:flex">
+              <MdDateRange size={16}/>
+              18 october 2021
+            </p>
+            
+            <h2 className="text-base font-bold sm:text-lg md:text-2xl">
+              Is america really the best country in the world?
+            </h2>
+
+            <p className="line-clamp-3 w-full text-sm text-gray-500 opacity-75 md:text-[15px]">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quaerat molestias perspiciatis accusamus nam cupiditate soluta autem nisi obcaecati temporibus! Nobis modi molestiae delectus architecto enim expedita, dicta eum ipsam!
+              orem ipsum dolor sit amet consectetur adipisicing elit. Culpa quaerat molestias perspiciatis accusamus nam cupiditate soluta autem nisi obcaecati temporibus! Nobis modi molestiae delectus architecto enim expedita, dicta eum ipsam!
+            </p>
+
+            <div className="mt-2 w-fit shrink-0 rounded-full border border-solid border-gray-400 p-1 px-3 text-xs font-semibold sm:text-sm">
+              Biology
+            </div>
+          </div>
+        </div>
+
+        <div className="flex w-full items-center gap-x-4">
+          <div className="aspect-square w-[150px] shrink-0 rounded-md bg-gray-300 md:w-[190px] lg:w-[220px]"/>
+
+          <div className="flex w-full flex-col gap-y-5 md:gap-y-6">
+            <div className="hidden h-3 w-48 bg-gray-300 md:block"/>
+          
+            <div className="h-4 w-full bg-gray-300 md:h-6"/>
+
+            <div className="flex w-full flex-col gap-y-2">
+              <div className="h-2 w-full bg-gray-300 md:h-3"/>
+              <div className="h-2 w-full bg-gray-300 md:h-3"/>
+              <div className="h-2 w-full bg-gray-300 md:h-3"/>
+            </div>
+
+            <div className="h-6 w-24 rounded-full bg-gray-300 sm:h-7"/>
+
+          </div>
+        </div>
+
+        <div className="my-64"></div>
         {/* SEARCH RESULT UI TEST END */}
 
         <h2 className="mb-3 flex items-center gap-x-2 text-lg font-bold sm:text-xl">
@@ -232,8 +290,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="grid w-full grid-cols-2 gap-x-4 gap-y-6 lg:grid-cols-3 lg:gap-x-6">
-          <div className="flex w-full flex-col gap-y-3">
+        <div className="grid w-full grid-cols-2 gap-x-3 gap-y-6 lg:grid-cols-3 lg:gap-x-6">
+          <div className="flex w-full flex-col gap-y-3 rounded-lg p-2 transition hover:bg-gray-300">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
               src={test.src} 
