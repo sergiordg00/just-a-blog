@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from 'next/navigation';
 
 import CategoryCard from "@/shared-components/cards/CategoryCard";
 
@@ -8,6 +9,8 @@ import LatestPostCard from "./components/LatestPostCard";
 import SkeletonAside from "./components/SkeletonAside";
 
 export default function AsideContent({ data }) {
+  const pathname = usePathname();
+
   if(!data.latestPosts || !data.categories) {
     return (
       <SkeletonAside />
@@ -36,10 +39,11 @@ export default function AsideContent({ data }) {
           {data.categories.data.map((category) => (
             <Link 
               key={category.id}
-              href={`/search?topic=${category.attributes.slug}`}
+              href={`/category/${category.attributes.slug}`}
             >
               <CategoryCard
                 categoryName={category.attributes.name}
+                isActive={pathname === `/category/${category.attributes.slug}`}
                 includeHover
                 isSmaller
               />

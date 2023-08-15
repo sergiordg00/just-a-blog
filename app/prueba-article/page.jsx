@@ -2,10 +2,8 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { MdDateRange } from "react-icons/md";
-import ReactMarkdown from 'react-markdown';
 
 import test from "@/assets/img/test.jpg";
-import test2 from "@/assets/img/test2.jpg";
 
 export default function ComponentName() {
   return (

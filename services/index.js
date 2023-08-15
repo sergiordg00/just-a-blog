@@ -13,10 +13,10 @@ export async function getAllCategories() {
 
 export async function getArticleOfTheDay() {
   try {
-    const response = await fetch(`${API_URL}/post/1?populate=cover`);
+    const response = await fetch(`${API_URL}/article-of-the-days?populate[post][populate][0]=cover&populate[post][populate][1]=category`, { cache: "no-store" });
     const data = await response.json();
 
-    return data.data;
+    return data.data[0];
   } catch(err) {
     return [];
   }
@@ -24,7 +24,7 @@ export async function getArticleOfTheDay() {
 
 export async function getTrendingPosts() {
   try {
-    const response = await fetch(`${API_URL}/posts?sort=views:desc&populate=cover&populate=category&pagination[limit]=8`);
+    const response = await fetch(`${API_URL}/posts?sort=views:desc&populate=cover&populate=category&pagination[limit]=8&fields[0]=title&&fields[1]=slug`, { cache: "no-store" });
     const data = await response.json();
 
     return data.data;

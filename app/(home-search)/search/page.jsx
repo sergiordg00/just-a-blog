@@ -1,16 +1,5 @@
-// WILL HAVE: q? param and category? param
-"use client";
-
-import { useEffect } from "react";
-
 export default function Search() {
-  useEffect(() => {
-    console.log(window.location.search);
-
-    setTimeout(() => {
-      console.log(window.location.search);
-    }, 5000);
-  }, []);
+  // TODO: WILL HAVE A GETURL FUNCITON THAT WILL ALWAYS PUT THE SME ORDER IN PARAMS (SO THAT THE KEY IS ALWAYS THE SAME. IF NOW TOPIC IS DEFINED, DONT PASS IT AS FILTER YOU KNOW)
   return (
     <div className="">
       This is a component template

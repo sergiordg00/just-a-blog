@@ -1,5 +1,7 @@
 "use client";
 
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 import { IoClose } from "react-icons/io5";
 
 import { useAside } from "@/context/AsideContext";
@@ -12,6 +14,11 @@ export default function Aside() {
   const { data: latestPosts } = useFetch("/posts?sort=createdAt:desc&populate=cover&populate=category&pagination[limit]=2");
   const { data: categories } = useFetch("/categories?pagination[limit]=8");
   const { isAsideOpen, setIsAsideOpen } = useAside();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setIsAsideOpen(false);
+  }, [pathname]);
 
   return (
     <>

@@ -29,6 +29,10 @@ export default function useFetch(endpoint) {
     }
   }
 
+  function updateData(newData) {
+    setData(newData);
+    globalClientCache.update(endpoint, newData);
+  }
   useEffect(() => {
     currentEndpoint.current = endpoint;
 
@@ -36,8 +40,11 @@ export default function useFetch(endpoint) {
 
     if(!dataFromCache) {
       fetchData();
+    } else {
+      setData(dataFromCache);
+      setLoading(false);
     }
   }, [endpoint]);
 
-  return { data, loading, error };
+  return { data, loading, error, updateData };
 }

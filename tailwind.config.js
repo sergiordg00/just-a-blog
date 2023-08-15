@@ -4,6 +4,12 @@ module.exports = {
     './shared-components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  theme: {},
+  theme: {
+    extend: {
+      screens: {
+        mediahover: { raw: '(hover: hover)' },
+      }
+    }
+  },
   plugins: [],
 };
