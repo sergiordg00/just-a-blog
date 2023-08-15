@@ -7,6 +7,8 @@ const inter = Inter({ subsets: ['latin'] });
 
 import clsx from 'clsx';
 
+import ToasterContext from '@/context/ToasterContext';
+
 export const metadata = {
   title: 'Just a blog - Next.js',
   description: 'A blog built with Next.js to help me learn about CMSs.',
@@ -19,6 +21,8 @@ export default function RootLayout({ children }) {
         "bg-gray-100",
         inter.className
       )}>
+        <ToasterContext />
+        
         {children}
 
         <div id="portal"></div>

@@ -46,7 +46,7 @@ export async function getPostsOfCategory(categorySlug) {
 
 export async function getPostBySlug(postSlug) {
   try {
-    const response = await fetch(`${API_URL}/posts?filters[slug][$eq]=${postSlug}&populate[0]=cover&populate[1]=category&populate[2]=comments`, { cache: "no-store" });
+    const response = await fetch(`${API_URL}/posts?filters[slug][$eq]=${postSlug}&populate[comments][sort]=createdAt:desc&populate[cover]=*&populate[category]=*`, { cache: "no-store" });
     const data = await response.json();
 
     return data.data[0];

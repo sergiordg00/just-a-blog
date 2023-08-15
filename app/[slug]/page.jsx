@@ -6,9 +6,10 @@ import { getPostBySlug } from "@/services";
 import ArticleBody from "./components/ArticleBody";
 import RegisterVisit from "./components/RegisterVisit";
 import SocialsButtons from "./components/SocialButtons";
+import Comments from "./Comments";
 
 export default async function Page({ params }) {
-  const { attributes: post } = await getPostBySlug(params.slug);
+  const { attributes: post, id } = await getPostBySlug(params.slug);
 
   if(!post) {
     return notFound();
@@ -56,13 +57,10 @@ export default async function Page({ params }) {
 
         <ArticleBody data={post}/>
 
-        <div className="w-full rounded-lg bg-white p-4 shadow-md">
-          <p className="text-base font-bold">
-            Leave a reply
-          </p>
-        </div>
-
-        <h1 className="text-xl font-bold">Aqui ira los comments. Los comentarios que aparezca la imagen con un color simple todos y que en el centro aparezca la letra (como en gmail)</h1>
+        <Comments
+          initialComments={post.comments.data}
+          id={id}
+        />
       </main>
     </div>
   );
