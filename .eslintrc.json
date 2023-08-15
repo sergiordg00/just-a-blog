@@ -37,6 +37,7 @@
         ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"], /* Other relative imports. Put same-folder imports and `.` last */
         ["^.+\\.?s?css$"] /* Style imports. */
       ]
-    }]
+    }],
+    "@next/next/no-img-element": "off" /** We want to use the img element */
   }
 }

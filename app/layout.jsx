@@ -9,7 +9,7 @@ import clsx from 'clsx';
 
 export const metadata = {
   title: 'Just a blog - Next.js',
-  description: 'A blog built with Next.js to help me learn about CMSs and static site generators.',
+  description: 'A blog built with Next.js to help me learn about CMSs.',
 };
 
 export default function RootLayout({ children }) {

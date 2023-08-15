@@ -3,17 +3,17 @@ import { BiCategoryAlt, BiTrendingUp } from "react-icons/bi";
 import { ImNewspaper } from "react-icons/im";
 import { MdDateRange } from "react-icons/md";
 
-import logo2 from "@/assets/img/logo2.jpeg";
+import logo from "@/assets/img/logo.jpeg";
 import test from "@/assets/img/test.jpg";
 import test2 from "@/assets/img/test2.jpg";
 
-export default function Home() {
+export default async function Home() {
   return (
     <div className="mx-auto flex w-full max-w-[1600px] items-start">
       <div className="min-h-screen w-full min-w-0 p-6 pb-12 pt-4">
         <div className="flex w-full items-center gap-x-5">
           <img 
-            src={logo2.src} 
+            src={logo.src} 
             alt="logo test" 
             className="h-auto w-[48px] shrink-0 rounded-md"
           />
@@ -645,111 +645,6 @@ export default function Home() {
 
         </div>
       </div>
-
-      <section className="sticky top-0 hidden min-h-screen w-[350px] shrink-0 flex-col gap-y-5 border-l border-solid border-gray-300 p-6 pt-4 md:flex">
-        <h2 className="-mb-2 text-base font-bold sm:text-lg">
-        Latest posts
-        </h2>
-
-        <article className="w-full shrink-0 overflow-hidden rounded-lg shadow">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img 
-            src={test.src} 
-            alt="Test Card Image"
-            className="h-32 w-full bg-gray-300 object-cover object-center transition hover:scale-110 sm:h-36" 
-          />
-
-          <div className="relative z-10 mt-[-20px] w-full shrink-0 rounded-lg rounded-b-none bg-white p-3 sm:p-5 sm:pt-3">
-            <h2 className="mb-3 text-sm font-semibold text-black sm:text-base">
-            Is United States really the best country in the world?
-            </h2>
-
-            <p className="line-clamp-2 text-xs sm:text-sm">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, iusto ipsa! Soluta in, alias expedita ut recusandae repudiandae dicta at rem provident, quo labore doloremque consectetur explicabo dolor possimus officiis.
-            </p>
-
-            <div className="mt-3 flex w-full items-center gap-x-3">
-              <div className="w-fit rounded-full border border-solid border-gray-400 p-1 px-4 text-xs font-semibold hover:bg-black hover:text-white">
-              Geography
-              </div>
-
-              <button className="rounded-lg p-2 text-sm text-gray-500 transition hover:bg-gray-300 hover:text-gray-700">
-            Read more -&gt;
-              </button>
-            </div>
-          </div>
-        </article>
-
-        <article className="w-full shrink-0 overflow-hidden rounded-lg shadow">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img 
-            src={test2.src} 
-            alt="Test Card Image"
-            className="h-32 w-full bg-gray-300 object-cover object-center transition hover:scale-110 sm:h-36" 
-          />
-
-          <div className="relative z-10 mt-[-20px] w-full rounded-lg rounded-b-none bg-white p-3 sm:p-5 sm:pt-3">
-            <h2 className="mb-3 text-sm font-semibold  text-black sm:text-base">
-            Are we really going to Mars in 2026?
-            </h2>
-
-            <p className="line-clamp-2 text-xs sm:text-sm">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, iusto ipsa! Soluta in, alias expedita ut recusandae repudiandae dicta at rem provident, quo labore doloremque consectetur explicabo dolor possimus officiis.
-            </p>
-
-            <div className="mt-3 flex w-full items-center gap-x-3">
-              <div className="w-fit rounded-full border border-solid border-gray-400 p-1 px-4 text-xs font-semibold hover:bg-black hover:text-white">
-              Space Exploration
-              </div>
-
-              <button className="rounded-lg p-2 text-sm text-gray-500 transition hover:bg-gray-300 hover:text-gray-700">
-            Read more -&gt;
-              </button>
-            </div>
-
-          </div>
-        </article>
-
-        <div className="mt-1 h-[1px] w-full shrink-0 bg-gray-300"/>
-
-        <h2 className="-mb-2 text-base font-bold sm:text-lg">
-        Interesting topics to explore
-        </h2>
-
-        <div className="flex w-full flex-wrap gap-x-2 gap-y-3">
-          <div className="w-fit rounded-full border border-solid border-gray-400 p-1 px-3 text-xs font-semibold transition hover:border-black hover:bg-black hover:text-white">
-            Other
-          </div>
-
-          <div className="w-fit rounded-full border border-solid border-gray-400 p-1 px-3 text-xs font-semibold hover:bg-black hover:text-white">
-            Math
-          </div>
-
-          <div className="w-fit rounded-full border border-solid border-gray-400 p-1 px-3 text-xs font-semibold hover:bg-black hover:text-white">
-          Science
-          </div>
-
-          <div className="w-fit rounded-full border border-solid border-gray-400 p-1 px-3 text-xs font-semibold hover:bg-black hover:text-white">
-          Technology
-          </div>
-
-          <div className="w-fit rounded-full border border-solid border-gray-400 p-1 px-3 text-xs font-semibold hover:bg-black hover:text-white">
-          History
-          </div>
-
-          <div className="w-fit rounded-full border border-solid border-gray-400 p-1 px-3 text-xs font-semibold hover:bg-black hover:text-white">
-          Society
-          </div>
-
-          <div className="w-fit rounded-full border border-solid border-gray-400 p-1 px-3 text-xs font-semibold hover:bg-black hover:text-white">
-          Biology
-          </div>
-
-          <div className="w-fit rounded-full border border-solid border-gray-400 p-1 px-3 text-xs font-semibold hover:bg-black hover:text-white">
-          Chemistry
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
