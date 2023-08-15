@@ -46,7 +46,7 @@ export async function getPostsOfCategory(categorySlug) {
 
 export async function getPostBySlug(postSlug) {
   try {
-    const response = await fetch(`${API_URL}/posts?filters[slug][$eq]=${postSlug}&populate=cover&populate=category&populate=comments`);
+    const response = await fetch(`${API_URL}/posts?filters[slug][$eq]=${postSlug}&populate[0]=cover&populate[1]=category&populate[2]=comments`);
     const data = await response.json();
 
     return data[0];
@@ -61,6 +61,23 @@ export async function getAllPosts() {
     const data = await response.json();
     
     return data.data;
+  } catch(err) {
+    return [];
+  }
+}
+
+export async function getCategoryInfo(categorySlug) {
+  try {
+    const response = await fetch(`${API_URL}/categories?filters[slug][$eq]=${categorySlug}&populate[posts][populate][0]=cover&populate[posts][populate][1]=comments&populate=banner`);
+    const category = (await response.json()).data[0];
+    const name = category.attributes.name;
+
+    const banner = category.attributes.banner.data.attributes.formats.large.url;
+    const posts = category.attributes.posts.data;
+    const totalViews = posts.reduce((acc, post) => acc + parseInt(post.attributes.views), 0);
+    const totalComments = posts.reduce((acc, post) => acc + post.attributes.comments.data.length, 0);
+
+    return { name, banner, totalViews, totalComments, posts };
   } catch(err) {
     return [];
   }
