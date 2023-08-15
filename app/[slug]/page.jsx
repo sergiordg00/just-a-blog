@@ -1,7 +1,69 @@
-export default function Page() {
+import { notFound } from "next/navigation";
+import { MdDateRange } from "react-icons/md";
+
+import { getPostBySlug } from "@/services";
+
+import ArticleBody from "./components/ArticleBody";
+import RegisterVisit from "./components/RegisterVisit";
+import SocialsButtons from "./components/SocialButtons";
+
+export default async function Page({ params }) {
+  const { attributes: post } = await getPostBySlug(params.slug);
+
+  if(!post) {
+    return notFound();
+  }
+
   return (
-    <div className="">
-      This is a component template
+    <div className="min-h-screen w-full">
+      <RegisterVisit slug={params.slug}/>
+
+      <header className="relative h-[400px] w-full">
+        <img 
+          src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${post.cover.data.attributes.url}`} 
+          alt="test" 
+          className="h-full w-full object-cover object-center" 
+        />
+
+        <div className="absolute bottom-0 left-0 h-[100px] w-full bg-gradient-to-t from-gray-100 to-transparent"/>
+      </header>
+
+      <main className="mx-auto w-full max-w-[800px] p-5 pt-6">
+        <h1 className="mb-6 w-full text-3xl font-extrabold">
+          {post.title}
+        </h1>
+
+        <div className="h-[1px] w-full bg-gray-300"/>
+
+        <div className="my-3 flex w-full items-center justify-between">
+          <p className="flex w-fit items-center gap-x-1 text-sm font-semibold text-gray-500 opacity-75">
+            <span className="hidden md:inline">
+              {post.category.data.attributes.name} &bull;
+            </span>
+
+            <MdDateRange size={16}/>
+            {new Date(post.createdAt).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </p>
+
+          <SocialsButtons data={post}/>
+        </div>
+
+        <div className="h-[1px] w-full bg-gray-300"/>
+
+        <ArticleBody data={post}/>
+
+        <div className="w-full rounded-lg bg-white p-4 shadow-md">
+          <p className="text-base font-bold">
+            Leave a reply
+          </p>
+        </div>
+
+        <h1 className="text-xl font-bold">Aqui ira los comments. Los comentarios que aparezca la imagen con un color simple todos y que en el centro aparezca la letra (como en gmail)</h1>
+      </main>
     </div>
   );
 }

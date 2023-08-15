@@ -46,12 +46,12 @@ export async function getPostsOfCategory(categorySlug) {
 
 export async function getPostBySlug(postSlug) {
   try {
-    const response = await fetch(`${API_URL}/posts?filters[slug][$eq]=${postSlug}&populate[0]=cover&populate[1]=category&populate[2]=comments`);
+    const response = await fetch(`${API_URL}/posts?filters[slug][$eq]=${postSlug}&populate[0]=cover&populate[1]=category&populate[2]=comments`, { cache: "no-store" });
     const data = await response.json();
 
-    return data[0];
+    return data.data[0];
   } catch(err) {
-    return [];
+    return null;
   }
 }
 
@@ -68,7 +68,7 @@ export async function getAllPosts() {
 
 export async function getCategoryInfo(categorySlug) {
   try {
-    const response = await fetch(`${API_URL}/categories?filters[slug][$eq]=${categorySlug}&populate[posts][populate][0]=cover&populate[posts][populate][1]=comments&populate=banner`);
+    const response = await fetch(`${API_URL}/categories?filters[slug][$eq]=${categorySlug}&populate[posts][populate][0]=cover&populate[posts][populate][1]=comments&populate=banner`, { cache: "no-store" });
     const category = (await response.json()).data[0];
     const name = category.attributes.name;
 

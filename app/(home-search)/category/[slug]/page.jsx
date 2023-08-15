@@ -6,7 +6,7 @@ export default async function Page({ params }) {
   const categoryInfo = await getCategoryInfo(slug);
 
   return (
-    <div className="flex w-full flex-col gap-y-5 [&>*]:shrink-0">
+    <section className="flex w-full flex-col gap-y-5 [&>*]:shrink-0">
       <h1 className="-mb-1 w-full text-center text-3xl font-bold sm:text-4xl">
         {categoryInfo.name}
       </h1>
@@ -31,6 +31,6 @@ export default async function Page({ params }) {
           <PostCard key={post.id} data={post} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }

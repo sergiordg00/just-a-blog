@@ -1,0 +1,14 @@
+.article-body h2 {
+  font-weight: bold;
+  font-size: 22px;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.article-body p:first-child::first-letter {
+  float: left;
+  margin-right: 0.5rem;
+  font-size: 4.5rem;
+  line-height: 1;
+  font-weight: 800;
+}
