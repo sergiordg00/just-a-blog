@@ -2,7 +2,7 @@ const API_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api`;
 
 export async function getAllCategories() {
   try {
-    const response = await fetch(`${API_URL}/categories?pagination[limit]=8`);
+    const response = await fetch(`${API_URL}/categories?pagination[limit]=8`, { cache: "no-store" });
     const data = await response.json();
 
     return data.data;
@@ -35,7 +35,7 @@ export async function getTrendingPosts() {
 
 export async function getPostsOfCategory(categorySlug) {
   try {
-    const response = await fetch(`${API_URL}/posts?filters[category][slug][$eq]=${categorySlug}&populate=cover`);
+    const response = await fetch(`${API_URL}/posts?filters[category][slug][$eq]=${categorySlug}&populate=cover`, { cache: "no-store" });
     const data = await response.json();
 
     return data.data;
@@ -57,7 +57,7 @@ export async function getPostBySlug(postSlug) {
 
 export async function getAllPosts() {
   try {
-    const response = await fetch(`${API_URL}/posts?populate=cover`);
+    const response = await fetch(`${API_URL}/posts?populate=cover`, { cache: "no-store" });
     const data = await response.json();
     
     return data.data;
