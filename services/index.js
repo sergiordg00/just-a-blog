@@ -33,17 +33,6 @@ export async function getTrendingPosts() {
   }
 }
 
-export async function getPostsOfCategory(categorySlug) {
-  try {
-    const response = await fetch(`${API_URL}/posts?filters[category][slug][$eq]=${categorySlug}&populate=cover`, { cache: "no-store" });
-    const data = await response.json();
-
-    return data.data;
-  } catch(err) {
-    return [];
-  }
-}
-
 export async function getPostBySlug(postSlug) {
   try {
     const response = await fetch(`${API_URL}/posts?filters[slug][$eq]=${postSlug}&populate[comments][sort]=createdAt:desc&populate[cover]=*&populate[category]=*`, { cache: "no-store" });
@@ -52,17 +41,6 @@ export async function getPostBySlug(postSlug) {
     return data.data[0];
   } catch(err) {
     return null;
-  }
-}
-
-export async function getAllPosts() {
-  try {
-    const response = await fetch(`${API_URL}/posts?populate=cover`, { cache: "no-store" });
-    const data = await response.json();
-    
-    return data.data;
-  } catch(err) {
-    return [];
   }
 }
 

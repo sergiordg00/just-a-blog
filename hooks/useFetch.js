@@ -18,12 +18,12 @@ export default function useFetch(endpoint) {
       const response = await fetch(`${API_URL}${endpoint}`);
       const data = await response.json();
 
+      globalClientCache.set(endpoint, data);
+      
       if(endpoint === currentEndpoint.current) {
         setData(data);
         setLoading(false);
       }
-
-      globalClientCache.set(endpoint, data);
     } catch(err) {
       setError(true);
     }
@@ -33,6 +33,7 @@ export default function useFetch(endpoint) {
     setData(newData);
     globalClientCache.update(endpoint, newData);
   }
+
   useEffect(() => {
     currentEndpoint.current = endpoint;
 

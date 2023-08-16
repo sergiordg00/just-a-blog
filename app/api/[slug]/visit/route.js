@@ -7,7 +7,7 @@ export async function PUT(req, { params }) {
     const { slug } = params;
     const post = await getPostBySlug(slug);
 
-    if (!post) {
+    if(!post) {
       return new NextResponse("Not Found", { 
         status: 404 
       });
