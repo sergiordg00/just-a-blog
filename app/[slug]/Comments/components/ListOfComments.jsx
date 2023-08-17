@@ -15,7 +15,7 @@ function CommentCard({ data }) {
 
           &nbsp;on&nbsp;
            
-          {new Date(data.createdAt).toLocaleDateString("en-US", {
+          {new Date(data._createdAt).toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
             day: "numeric",
@@ -40,7 +40,7 @@ export default function ListOfComments({ comments }) {
       <div className="my-4 h-[1px] w-full bg-gray-300"/>
 
       {comments.map((comment) => (
-        <CommentCard data={comment.attributes} key={comment.id}/>
+        <CommentCard data={comment} key={comment._id}/>
       ))}
     </div>
   );

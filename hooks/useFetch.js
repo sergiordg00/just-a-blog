@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { globalClientCache } from "@/lib/GlobalClientCache";
-
-const API_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api`;
+import { client } from "@/lib/sanity";
 
 /** This hook is just built for this project. Uses the simple cache system for avoiding unnecessary requests */
 export default function useFetch(endpoint) {
@@ -15,8 +14,7 @@ export default function useFetch(endpoint) {
     setLoading(true);
 
     try {
-      const response = await fetch(`${API_URL}${endpoint}`);
-      const data = await response.json();
+      const data = await client.fetch(endpoint);
 
       globalClientCache.set(endpoint, data);
       

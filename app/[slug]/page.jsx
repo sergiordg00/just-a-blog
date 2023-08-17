@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { MdDateRange } from "react-icons/md";
 
 import { getPostBySlug } from "@/services";
+import { urlFor } from "@/utils";
 
 import ArticleBody from "./components/ArticleBody";
 import RegisterVisit from "./components/RegisterVisit";
@@ -9,7 +10,7 @@ import SocialsButtons from "./components/SocialButtons";
 import Comments from "./Comments";
 
 export default async function Page({ params }) {
-  const { attributes: post, id } = await getPostBySlug(params.slug);
+  const post = await getPostBySlug(params.slug);
 
   if(!post) {
     return notFound();
@@ -17,11 +18,11 @@ export default async function Page({ params }) {
 
   return (
     <div className="min-h-screen w-full">
-      <RegisterVisit slug={params.slug}/>
+      <RegisterVisit postId={post._id}/>
 
       <header className="relative h-[400px] w-full">
         <img 
-          src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${post.cover.data.attributes.url}`} 
+          src={urlFor(post.cover).url()} 
           alt="test" 
           className="h-full w-full object-cover object-center" 
         />
@@ -39,11 +40,11 @@ export default async function Page({ params }) {
         <div className="my-3 flex w-full items-center justify-between">
           <p className="flex w-fit items-center gap-x-1 text-sm font-semibold text-gray-500 opacity-75">
             <span className="hidden md:inline">
-              {post.category.data.attributes.name} &bull;
+              {post.category.name} &bull;
             </span>
 
             <MdDateRange size={16}/>
-            {new Date(post.createdAt).toLocaleDateString("en-US", {
+            {new Date(post._createdAt).toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",
               day: "numeric",
@@ -58,9 +59,9 @@ export default async function Page({ params }) {
         <ArticleBody data={post}/>
 
         <Comments
-          initialComments={post.comments.data}
-          id={id}
-        />
+          initialComments={post.comments}
+          id={post._id}
+        /> 
       </main>
     </div>
   );

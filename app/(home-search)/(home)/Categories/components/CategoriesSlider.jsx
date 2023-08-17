@@ -24,13 +24,13 @@ export default function CategoriesSlider({ data }) {
 
       {data.map((category) => (
         <Link
-          key={category.id}
-          href={`/?category=${category.attributes.slug}`}
+          key={category._id}
+          href={`/?category=${category.slug.current}`}
           scroll={false}
         >
           <CategoryCard
-            categoryName={category.attributes.name}
-            isActive={searchParams.get("category") === category.attributes.slug}
+            categoryName={category.name}
+            isActive={searchParams.get("category") === category.slug.current}
             includeHover
           />
         </Link>

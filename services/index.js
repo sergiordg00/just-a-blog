@@ -1,62 +1,50 @@
-const API_URL = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api`;
+import { client } from "@/lib/sanity";
 
 export async function getAllCategories() {
-  try {
-    const response = await fetch(`${API_URL}/categories?pagination[limit]=8`, { cache: "no-store" });
-    const data = await response.json();
+  const data = await client.fetch(`*[_type == "category"] [0..7]`);
+  return data;
+}
 
-    return data.data;
-  } catch(err) {
-    return [];
-  }
+export async function getLatestPosts() {
+  const data = await client.fetch(`*[_type == "post"] | order(_createdAt desc) [0..1] {..., category->}`);
+  return data;
 }
 
 export async function getArticleOfTheDay() {
-  try {
-    const response = await fetch(`${API_URL}/article-of-the-days?populate[post][populate][0]=cover&populate[post][populate][1]=category`, { cache: "no-store" });
-    const data = await response.json();
+  const data = await client.fetch(`*[_type == "articleoftheday"][0]{
+    ...,
+    post->
+  }`);
 
-    return data.data[0];
-  } catch(err) {
-    return [];
-  }
+  return data;
 }
 
-export async function getTrendingPosts() {
-  try {
-    const response = await fetch(`${API_URL}/posts?sort=views:desc&populate=cover&populate=category&pagination[limit]=8&fields[0]=title&&fields[1]=slug`, { cache: "no-store" });
-    const data = await response.json();
-
-    return data.data;
-  } catch(err) {
-    return [];
-  }
+export async function getMostVisitedPosts() {
+  const data = await client.fetch(`*[_type == "post"] | order(views desc) [0..7] {
+    ...,
+    category->
+  }`);
+  return data;
 }
 
-export async function getPostBySlug(postSlug) {
-  try {
-    const response = await fetch(`${API_URL}/posts?filters[slug][$eq]=${postSlug}&populate[comments][sort]=createdAt:desc&populate[cover]=*&populate[category]=*`, { cache: "no-store" });
-    const data = await response.json();
+export async function getCategoryBySlug(slug) {
+  const data = await client.fetch(`*[_type == "category" && slug.current == "${slug}"][0]{
+    ...,
+    'posts': *[_type == "post" && category._ref == ^._id] | order(_createdAt desc) [0..7],
+    'totalComments': count(*[_type == "comment" && post->category._ref == ^._id]),
+  }`);
 
-    return data.data[0];
-  } catch(err) {
-    return null;
-  }
+  const totalViews = data.posts.reduce((acc, post) => acc + post.views, 0);
+
+  return { name: data.name, banner: data.banner, totalViews, totalComments: data.totalComments, posts: data.posts };
 }
 
-export async function getCategoryInfo(categorySlug) {
-  try {
-    const response = await fetch(`${API_URL}/categories?filters[slug][$eq]=${categorySlug}&populate[posts][populate][0]=cover&populate[posts][populate][1]=comments&populate=banner`, { cache: "no-store" });
-    const category = (await response.json()).data[0];
-    const name = category.attributes.name;
-
-    const banner = category.attributes.banner.data.attributes.formats.large.url;
-    const posts = category.attributes.posts.data;
-    const totalViews = posts.reduce((acc, post) => acc + parseInt(post.attributes.views), 0);
-    const totalComments = posts.reduce((acc, post) => acc + post.attributes.comments.data.length, 0);
-
-    return { name, banner, totalViews, totalComments, posts };
-  } catch(err) {
-    return [];
-  }
+export async function getPostBySlug(slug) {
+  const data = await client.fetch(`*[_type == "post" && slug.current == "${slug}"][0]{
+    ...,
+    category->,
+    'comments': *[_type == "comment" && post._ref == ^._id] | order(_createdAt desc)
+  }`);
+  
+  return data;
 }

@@ -9,7 +9,16 @@ import PostResultSkeleton from "./components/PostResultSkeleton";
 
 export default function Search() {
   const searchParams = useSearchParams();
-  const { loading, data: results } = useFetch(`/posts?filters[$or][0][title][$containsi]=${searchParams.get("q") || ""}&filters[$or][1][content][$containsi]=${searchParams.get("q") || ""}&populate[0]=cover&populate[1]=category`);
+  const { loading, data: results } = useFetch(getSearchQuery());
+
+  function getSearchQuery() {
+    const searchTerm = searchParams.get("q") || "";
+
+    return (`*[_type == "post" && (title match "${searchTerm}" || content[].children[].text match "${searchTerm}")]{
+      ...,
+      category->
+    }`);
+  }
 
   if(loading) {
     return (
@@ -24,18 +33,18 @@ export default function Search() {
     return (
       <div className="flex w-full flex-col gap-y-5">
         {
-          results.data.length === 0 ?
+          results.length === 0 ?
             <p className="mb-4 w-full text-sm font-semibold sm:text-base">
               No results found for &quot;{searchParams.get("q")}&quot;
             </p> 
             :
             <>
               <p className="-mb-2 w-full text-sm font-semibold sm:text-base">
-                {results.data.length} results found for &quot;{searchParams.get("q")}&quot;
+                {results.length} results found for &quot;{searchParams.get("q")}&quot;
               </p> 
 
-              {results.data.map((result) => (
-                <PostResultCard key={result.id} data={result} />
+              {results.map((result) => (
+                <PostResultCard key={result._id} data={result} />
               ))}
             </>
         }

@@ -22,9 +22,9 @@ export default function AsideContent({ data }) {
           Latest posts
         </h2>
 
-        {data.latestPosts.data.map((post) => (
+        {data.latestPosts.map((post) => (
           <LatestPostCard
-            key={post.id}
+            key={post._id}
             data={post}
           />
         ))}
@@ -36,14 +36,14 @@ export default function AsideContent({ data }) {
         </h2>
   
         <div className="flex w-full flex-wrap gap-x-2 gap-y-3">
-          {data.categories.data.map((category) => (
+          {data.categories.map((category) => (
             <Link 
-              key={category.id}
-              href={`/category/${category.attributes.slug}`}
+              key={category._id}
+              href={`/category/${category.slug.current}`}
             >
               <CategoryCard
-                categoryName={category.attributes.name}
-                isActive={pathname === `/category/${category.attributes.slug}`}
+                categoryName={category.name}
+                isActive={pathname === `/category/${category.slug.current}`}
                 includeHover
                 isSmaller
               />

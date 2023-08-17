@@ -12,9 +12,9 @@ export default function CategoryPosts() {
 
   function getEndpoint() {
     if(searchParams.get("category")) {
-      return `/posts?filters[category][slug][$eq]=${searchParams.get("category")}&populate=cover`;
+      return `*[_type == "post" && category->slug.current == "${searchParams.get("category")}"]`;
     } else {
-      return `/posts?populate=cover&paginate[limit]=12`;
+      return `*[_type == "post"] [0..11]`;
     }
   }
 
@@ -29,8 +29,8 @@ export default function CategoryPosts() {
   } else {
     return (
       <div className="grid w-full grid-cols-2 gap-x-3 gap-y-6 lg:grid-cols-3 lg:gap-x-6">
-        {posts.data.map(post => (
-          <PostCard key={post.id} data={post} />
+        {posts.map(post => (
+          <PostCard key={post._id} data={post} />
         ))}
       </div>
     );

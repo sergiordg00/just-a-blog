@@ -2,9 +2,9 @@
 
 import { useEffect } from "react";
 
-export default function RegisterVisit({ slug }) {
+export default function RegisterVisit({ postId }) {
   useEffect(() => {
-    fetch(`/api/${slug}/visit`, {
+    fetch(`/api/${postId}/visit`, {
       method: "PUT",
     });
   }, []);

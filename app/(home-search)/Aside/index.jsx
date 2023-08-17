@@ -11,8 +11,8 @@ import Drawer from "@/shared-components/modals/Drawer";
 import AsideContent from "./AsideContent";
 
 export default function Aside() {
-  const { data: latestPosts } = useFetch("/posts?sort=createdAt:desc&populate=cover&populate=category&pagination[limit]=2");
-  const { data: categories } = useFetch("/categories?pagination[limit]=8");
+  const { data: latestPosts } = useFetch(`*[_type == "post"] | order(_createdAt desc) [0..1] {..., category->}`);
+  const { data: categories } = useFetch(`*[_type == "category"] | order(_createdAt asc) [0..7]`);
   const { isAsideOpen, setIsAsideOpen } = useAside();
   const pathname = usePathname();
 
