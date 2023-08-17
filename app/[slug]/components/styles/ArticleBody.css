@@ -3,6 +3,7 @@
   font-size: 22px;
   margin-top: 10px;
   text-align: left;
+  line-height: 33px;
 }
 
 .article-body p:first-child::first-letter {
@@ -11,4 +12,13 @@
   font-size: 4.5rem;
   line-height: 1;
   font-weight: 800;
+}
+
+.article-body p {
+  line-height: 24px;
+}
+
+
+.article-body strong {
+  font-weight: bolder;
 }
