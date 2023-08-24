@@ -27,7 +27,7 @@ export default async function Page({ params }) {
           className="h-full w-full object-cover object-center" 
         />
 
-        <div className="absolute bottom-0 left-0 h-[100px] w-full bg-gradient-to-t from-gray-100 to-transparent"/>
+        <div className="absolute bottom-0 left-0 h-full w-full bg-gradient-to-t from-gray-100 to-transparent"/>
       </header>
 
       <main className="mx-auto w-full max-w-[800px] p-5 pt-6">
