@@ -12,6 +12,13 @@ import ToasterContext from '@/context/ToasterContext';
 export const metadata = {
   title: 'Just a blog - Next.js',
   description: 'A blog built with Next.js to help me learn about CMSs.',
+  openGraph: {
+    images: [
+      {
+        url: 'https://blog.sergiordg.com/share.jpg'
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {
