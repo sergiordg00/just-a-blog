@@ -44,7 +44,7 @@ To run the project on your local machine, follow these steps:
 ## Author ✏
 **Sergio Rodríguez de Guzmán**
 
-[![linkedin](https://img.shields.io/static/v1?label=&message=linkedin&color=0A66C2&logo=linkedin&logoColor=white&style=for-the-badge)](https://todo.com) 
+[![linkedin](https://img.shields.io/static/v1?label=&message=linkedin&color=0A66C2&logo=linkedin&logoColor=white&style=for-the-badge)](https://www.linkedin.com/in/sergiordg00/) 
 
 [![email](https://img.shields.io/static/v1?label=&message=email&color=EA4335&logo=gmail&logoColor=white&style=for-the-badge)](mailto:sergio@sergiordg.com)
 
